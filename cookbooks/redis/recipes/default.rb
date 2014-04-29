@@ -4,7 +4,7 @@
 #
 
 if ['util'].include?(node[:instance_role])
-  if node[:name] == 'redis'
+  if node[:name].include?('redis')
 
     sysctl "Enable Overcommit Memory" do
       variables 'vm.overcommit_memory' => 1

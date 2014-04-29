@@ -1,0 +1,5 @@
+check process rapnd_<%= @appname %>
+  with pidfile /data/<%= @appname %>/current/log/rapnd_.pid
+  start program = "/data/<%= @appname %>/current/script/rapnd_ctl.sh start <%= "#{@appname} #{@rails_env}" %>" as uid deploy and gid deploy
+  stop program = "/data/<%= @appname %>/current/script/rapnd_ctl.sh stop <%= "#{@appname} #{@rails_env}" %>" as uid deploy and gid deploy
+  group rapnd_<%= @appname %>

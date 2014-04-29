@@ -20,7 +20,7 @@
 # include_recipe "sidekiq"
 
 #uncomment to turn on memcached
-# include_recipe "memcached"
+include_recipe "memcached"
 
 #uncomment ot run the riak recipe
 # include_recipe "riak"
@@ -54,16 +54,18 @@
 #include_recipe "mongodb"
 
 #uncomment to run the resque recipe
-# include_recipe "resque"
+include_recipe "resque"
+include_recipe "rapnd"
+include_recipe 'redis-s3backup'
 
 #uncomment to run redis.yml recipe
 # include_recipe "redis-yml"
 
 #uncomment to run the resque-scheduler recipe
-# include_recipe "resque-scheduler"
+include_recipe "resque-scheduler"
 
 #uncomment to run the redis recipe
-#include_recipe "redis"
+include_recipe "redis"
 
 #uncomment to run the api-keys-yml recipe
 # include_recipe "api-keys-yml"
