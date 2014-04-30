@@ -4,19 +4,19 @@
 #
 
 if ['util'].include?(node[:instance_role])
-  if node[:name].include?('redis')
+  if node[:name] == 'redis_001'
 
     sysctl "Enable Overcommit Memory" do
       variables 'vm.overcommit_memory' => 1
     end
 
     enable_package "dev-db/redis" do
-      version "2.4.6"
+      #version "2.4.18"
     end
 
     package "dev-db/redis" do
-      version "2.4.6"
-      action :upgrade
+      #version "2.4.18"
+      #action :upgrade
     end
 
     directory "#{node[:redis][:basedir]}" do
