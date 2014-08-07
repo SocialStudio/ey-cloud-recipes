@@ -3,20 +3,19 @@
 # Recipe:: default
 #
 
-if ['util'].include?(node[:instance_role])
-  if node[:name] == 'redis_001'
+if ['util', 'solo'].include?(node[:instance_role])
 
     sysctl "Enable Overcommit Memory" do
       variables 'vm.overcommit_memory' => 1
     end
 
     enable_package "dev-db/redis" do
-      #version "2.4.18"
+      version "2.8.7"
     end
 
     package "dev-db/redis" do
-      #version "2.4.18"
-      #action :upgrade
+      version "2.8.7"
+      action :upgrade
     end
 
     directory "#{node[:redis][:basedir]}" do
@@ -64,7 +63,6 @@ if ['util'].include?(node[:instance_role])
     execute "monit reload" do
       action :run
     end
-  end
 end
 
 if ['solo', 'app', 'app_master', 'util'].include?(node[:instance_role])

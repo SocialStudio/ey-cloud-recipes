@@ -6,6 +6,13 @@
 if ['util'].include?(node[:instance_role])
   if node[:name].include?('redis')
 
+    directory "/data/redis" do
+      owner 'redis'
+      group 'redis'
+      mode 0755
+      action :create
+    end
+
     directory "/data/redis/s3backup" do
       owner 'redis'
       group 'redis'

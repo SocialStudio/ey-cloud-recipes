@@ -56,7 +56,7 @@ include_recipe "memcached"
 #uncomment to run the resque recipe
 include_recipe "resque"
 include_recipe "rapnd"
-include_recipe 'redis-s3backup'
+#include_recipe 'redis-s3backup'
 
 #uncomment to run redis.yml recipe
 # include_recipe "redis-yml"
